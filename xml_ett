@@ -1,0 +1,108 @@
+order>
+ <saleStatus>issued</saleStatus>
+ <date>2023-12-04T17:23:05.78Z</date>
+ <agentId>A-00014</agentId>
+ <agentContractId>AC-0000000001</agentContractId>
+ <orderId>O-00000000001</orderId>
+ <agentOrderId>fhXkTMvx</agentOrderId>
+ <author>Anton Korlyakov</author>
+ <orderItem>
+ <orderItemId>OD-00000000001</orderItemId>
+ <agentOrderItemId>wpXvNwLv</agentOrderItemId>
+ <categoryId>1</categoryId>
+ <categoryTitle>lounges</categoryTitle>
+ <productId>P-01121</productId>
+3.2. Order item refunding
+When an order item is refunded, the system should generate an XML document, which only contains one refunded order item, and upload
+them to configured ETT FTP server.
+3.2.1. File Name
+File name should consist of Order ID, suffix refund and .xml extension.
+Example: O-00000000001_refund.xml
+If the order has multiple refunded items then refund iteration index should be added to the suffix,
+starting from 1.
+Example: O-00000000001_refund_1.xml, O-00000000001_refund_2.xml, …, O-00000000001_refund_N.xml
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+ <productTitle>Plaza Premium Lounge</productTitle>
+ <airportIata>LHR</airportIata>
+ <terminalId>56</terminalId>
+ <terminalTitle>Terminal 1</terminalTitle>
+ <productType>departure</productType>
+ <firstName>John</firstName>
+ <lastName>Smith</lastName>
+ <paxType>adult</paxType>
+ <productDate>2024-01-01T00:00:00Z</productDate>
+ <value>3</value>
+ <type>hours</type>
+ <supplierId>S-00027</supplierId>
+ <supplierContract>SC-000000001</supplierContract> 
+ <supplierGrossPrice>82.0</supplierGrossPrice>
+ <ettNetPrice>49.2</ettNetPrice>
+ <agentGrossPrice>100.0</agentGrossPrice>
+ <agentNetPrice>90.0</agentNetPrice>
+ </orderItem>
+ <orderItem>
+ <orderItemId>OD-00000000002</orderItemId>
+ <agentOrderItemId>NjXmvIXz</agentOrderItemId>
+ <categoryId>1</categoryId>
+ <categoryTitle>lounges</categoryTitle>
+ <productId>P-01121</productId>
+ <productTitle>Plaza Premium Lounge</productTitle>
+ <airportIata>LHR</airportIata>
+ <terminalId>56</terminalId>
+ <terminalTitle>Terminal 1</terminalTitle>
+ <productType>departure</productType>
+ <firstName>Junior</firstName>
+ <lastName>Smith</lastName>
+ <paxType>child</paxType>
+ <productDate>2024-01-01T00:00:00Z</productDate>
+ <value>3</value>
+ <type>hours</type>
+ <supplierId>S-00027</supplierId>
+ <supplierContractId>SC-000000001</supplierContractId> 
+ <supplierGrossPrice>82.0</supplierGrossPrice>
+ <ettNetPrice>49.2</ettNetPrice>
+ <agentGrossPrice>100.0</agentGrossPrice>
+ <agentNetPrice>90.0</agentNetPrice>
+ </orderIt
